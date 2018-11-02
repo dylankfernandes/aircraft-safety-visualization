@@ -11,9 +11,7 @@ df = pd.read_csv('safety.csv')
 # print(df.shape[0]) # row count len(df.index)
 # print(df.shape[1]) # column count len(df.column)
 
-column_list = list(df.columns)
-column_list.remove('avail_seat_km_per_week')
-df['total incidents'] = df[column_list].sum(axis=1)
+df['total incidents'] = df[['fatalities_85_99', 'fatalities_00_14']].sum(axis=1)
 
 fig = plt.figure()
 ax1 = plt.subplot2grid((1,1),(0,0))
